@@ -91,27 +91,27 @@ body {
     padding: 20px;
     height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 1fr; /* immagine | testo */
+    grid-template-columns: auto 1fr; /* immagine | testo */
     gap: 20px;
     box-sizing: border-box;
   }
 
   /* Colonna immagine */
   .scene-media {
+    height: calc(100vh - 40px);
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 40px); /* padding sopra/sotto */
-    overflow: hidden;
   }
-
+  
+  /* Imposta qui il rapporto reale delle tue immagini */
   .scene-media .game-image {
-    max-width: 100%;
-    max-height: 100%;
-    height: auto;
+    height: 100%;
     width: auto;
-    margin: 0; /* togli margini verticali per centrare bene */
-    display: block;
+    aspect-ratio: 2 / 3;
+    max-width: 55vw;   /* puoi stare tra 50–60vw */
+    object-fit: contain;
   }
 
   /* Colonna testo (include anche le scelte) */
