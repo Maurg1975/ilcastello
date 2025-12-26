@@ -64,13 +64,68 @@ body {
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s;
 }
-/* Niente effetto hover: il pulsante non cambia al passaggio del mouse */
+
+/* --- Scelte: niente effetto hover --- */
 .choice-button:hover {
   background-color: transparent;
   color: inherit;
 }
-/* Manteniamo solo un feedback minimo per tastiera (accessibilità) */
+
+/* Feedback tastiera (consigliato) */
 .choice-button:focus {
   outline: 2px solid currentColor;
   outline-offset: 2px;
+}
+
+/* --- Layout scena: desktop split view --- */
+@media (min-width: 900px) {
+  body {
+    height: 100vh;
+    overflow: hidden; /* la pagina NON scrolla: scrolla solo il pannello testo */
+  }
+
+  /* Rendi #game una griglia a 2 colonne */
+  .game-container {
+    max-width: none;         /* prima era 800px :contentReference[oaicite:1]{index=1} */
+    margin: 0;
+    padding: 20px;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* immagine | testo */
+    gap: 20px;
+    box-sizing: border-box;
+  }
+
+  /* Colonna immagine */
+  .scene-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 40px); /* padding sopra/sotto */
+    overflow: hidden;
+  }
+
+  .scene-media .game-image {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    width: auto;
+    margin: 0; /* togli margini verticali per centrare bene */
+    display: block;
+  }
+
+  /* Colonna testo (include anche le scelte) */
+  .scene-text {
+    height: calc(100vh - 40px);
+    overflow-y: auto;
+    padding-right: 10px; /* un filo di spazio per la scrollbar */
+    box-sizing: border-box;
+  }
+
+  /* scelte dentro il pannello testo */
+  .scene-text .choices-container {
+    max-width: none;
+    margin: 20px 0 0 0;
+    padding: 0;
+  }
 }
