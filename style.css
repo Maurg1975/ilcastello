@@ -120,21 +120,21 @@ body {
     overflow-y: auto;
     padding-right: 10px; /* un filo di spazio per la scrollbar */
     box-sizing: border-box;
-    font-size: 18px;      /* base desktop */
-    line-height: 1.6;     /* fondamentale per leggibilità */
+    font-size: 23px;      /* base desktop */
+    line-height: 1.75;     /* fondamentale per leggibilità */
   }
 
   /* Testo stampato dal motore */
   .game-line {
     font-size: 1em;       /* eredita dalla scene-text */
-    line-height: 1.6;
-    margin-bottom: 1em;  /* più aria tra i paragrafi */
+    line-height: 1.75;
+    margin-bottom: 1.2em;  /* più aria tra i paragrafi */
   }
 
   /* Pulsanti delle scelte */
   .choice-button {
     font-size: 1em;
-    padding: 10px 14px;
+    padding: 14px 18px;
   }
 
   /* scelte dentro il pannello testo */
