@@ -1,4 +1,5 @@
 scene CH0
+    image "images/ilcastello.png"
     print "La spiaggia è silenziosa."
     choice "Avanzare verso il sentiero"
         go CH1
