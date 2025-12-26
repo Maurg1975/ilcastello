@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Castello</title>
+    <!-- Link to external stylesheet for the game engine -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Main container for textual content and images -->
+    <div id="game" class="game-container"></div>
+
+    <!-- Container where choices will be rendered -->
+    <div id="choices" class="choices-container"></div>
+
+    <!-- Fallback message shown if the script fails to load -->
+    <noscript>È necessario abilitare JavaScript per eseguire il gioco.</noscript>
+
+    <!--
+      L’elemento sottostante può contenere il codice CSL delle scene.
+      Se lasciato vuoto, il motore tenterà di caricare il file
+      "scenes.csl" tramite fetch. Per evitare problemi di permessi
+      quando si apre il file con protocollo file://, è consigliabile
+      incollare qui il contenuto del file .csl oppure servire il
+      progetto tramite un server HTTP.
+    -->
+    <script id="csl-script" type="text/plain">
+    <!-- Inserisci qui il tuo script CSL, se necessario -->
+    </script>
+
+    <!-- Include il motore del gioco -->
+    <script src="app.js"></script>
+</body>
+</html>

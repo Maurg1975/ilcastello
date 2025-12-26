@@ -1,0 +1,71 @@
+/*
+ * Foglio di stile per “Il Castello”.
+ *
+ * Questo stylesheet definisce gli stili di base per il motore
+ * di narrativa interattiva. Lo sfondo, il colore del testo, la
+ * famiglia tipografica e le dimensioni del carattere sono
+ * configurabili tramite il linguaggio di scripting (cfr. gramma
+ * formale a pagina 3 del PDF allegato)【676761782552981†L114-L129】.
+ * Di default vengono usati valori consigliati: sfondo nero,
+ * testo color avorio e font serif di dimensione media.
+ */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000; /* nero di default */
+  color: #f5f5dc;        /* avorio di default */
+  font-family: 'Garamond', serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Contenitore per il testo e le immagini */
+.game-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Ogni riga di testo stampata dal gioco */
+.game-line {
+  margin: 0 0 1em 0;
+  white-space: pre-wrap; /* preserva le interruzioni di riga */
+}
+
+/* Immagini inserite con il comando "image" */
+.game-image {
+  max-width: 100%;
+  height: auto;
+  margin: 1em 0;
+  display: block;
+}
+
+/* Contenitore dei pulsanti di scelta */
+.choices-container {
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Stile per i pulsanti di scelta */
+.choice-button {
+  background-color: transparent;
+  color: inherit;
+  border: 2px solid currentColor;
+  border-radius: 4px;
+  padding: 10px 15px;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+.choice-button:hover,
+.choice-button:focus {
+  background-color: currentColor;
+  color: #000;
+}
