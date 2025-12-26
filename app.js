@@ -26,6 +26,21 @@
     const gameDiv = document.getElementById('game');
     const choicesDiv = document.getElementById('choices');
 
+    // Costruiamo una UI a 2 pannelli dentro #game
+    const mediaDiv = document.createElement('div');
+    mediaDiv.className = 'scene-media';
+    
+    const textDiv = document.createElement('div');
+    textDiv.className = 'scene-text';
+    
+    // Spostiamo il contenitore scelte dentro il pannello testo
+    textDiv.appendChild(choicesDiv);
+    
+    // Montiamo i pannelli dentro #game
+    gameDiv.appendChild(mediaDiv);
+    gameDiv.appendChild(textDiv);
+
+    
     /**
      * Stato globale del gioco. Mantiene due insiemi: uno per le
      * variabili impostate tramite i comandi `set` e `unset`, e uno
@@ -87,15 +102,13 @@
      * @param {string} text Testo da visualizzare.
      */
     function printLine(text) {
-        const p = document.createElement('p');
-        p.className = 'game-line';
-        p.textContent = text;
-        // Applica lo stile corrente alla singola riga.
-        p.style.color = styleState.foreground;
-        p.style.fontFamily = styleState.font;
-        p.style.fontSize = styleState.fontsize + 'px';
-        gameDiv.appendChild(p);
-        scrollToBottom();
+      const p = document.createElement('p');
+      p.className = 'game-line';
+      p.textContent = text;
+      p.style.color = styleState.foreground;
+      p.style.fontFamily = styleState.font;
+      p.style.fontSize = styleState.fontsize + 'px';
+      textDiv.insertBefore(p, choicesDiv); // testo nel pannello destro, sopra le scelte
     }
 
     /**
@@ -107,12 +120,11 @@
      * @param {string} src Percorso dell’immagine.
      */
     function showImage(src) {
-        const img = document.createElement('img');
-        img.className = 'game-image';
-        img.src = src;
-        img.alt = '';
-        gameDiv.appendChild(img);
-        scrollToBottom();
+      const img = document.createElement('img');
+      img.className = 'game-image';
+      img.src = src;
+      img.alt = '';
+      mediaDiv.appendChild(img); // immagine nel pannello sinistro
     }
 
     /**
@@ -765,15 +777,20 @@
      * @param {string} sceneId
      */
     async function runScene(sceneId) {
-        // Rimuove eventuali scelte residue
-        choicesDiv.innerHTML = '';
-        const scene = scenes[sceneId];
-        if (!scene) {
-            printLine('Scena non trovata: ' + sceneId);
-            return;
-        }
-        // Esegue le istruzioni della scena
-        await runStatements(scene);
+      // Pulisce la scena precedente (testo + immagini)
+      mediaDiv.innerHTML = '';
+      // rimuovi tutte le righe testo ma NON il contenitore scelte
+      Array.from(textDiv.querySelectorAll('.game-line')).forEach(el => el.remove());
+    
+      // Rimuove eventuali scelte residue
+      choicesDiv.innerHTML = '';
+    
+      const scene = scenes[sceneId];
+      if (!scene) {
+        printLine('Scena non trovata: ' + sceneId);
+        return;
+      }
+      await runStatements(scene);
     }
 
     /**
