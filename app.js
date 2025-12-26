@@ -69,32 +69,6 @@
     }
 
     /**
-     * Stato corrente dello stile grafico. Inizialmente vengono
-     * impostati i valori consigliati dal PDF: sfondo nero,
-     * testo avorio, font Garamond/serif e dimensione 16【676761782552981†L115-L127】.
-     * I comandi di stile dello script modificano queste proprietà.
-     */
-    const styleState = {
-        background: '#000000',
-        foreground: '#f5f5dc',
-        font: "'Garamond', serif",
-        fontsize: 16
-    };
-
-    /**
-     * Applica lo stile corrente (sfondo, colore, font e dimensione) al
-     * documento. Viene richiamata dopo ogni modifica di stile.
-     */
-    function applyGlobalStyle() {
-        document.body.style.backgroundColor = styleState.background;
-        document.body.style.color = styleState.foreground;
-        document.body.style.fontFamily = styleState.font;
-        document.body.style.fontSize = styleState.fontsize + 'px';
-    }
-    // Applica lo stile iniziale alla pagina.
-    applyGlobalStyle();
-
-    /**
      * Stampa una riga di testo sullo schermo. Ogni riga viene
      * racchiusa in un elemento <p> con class `game-line` e riceve
      * gli stessi attributi di stile attuali (colore, font,
@@ -105,9 +79,6 @@
       const p = document.createElement('p');
       p.className = 'game-line';
       p.textContent = text;
-      p.style.color = styleState.foreground;
-      p.style.fontFamily = styleState.font;
-      p.style.fontSize = styleState.fontsize + 'px';
       textDiv.insertBefore(p, choicesDiv); // testo nel pannello destro, sopra le scelte
     }
 
@@ -374,53 +345,6 @@
                     }
                     idx++;
                     return { type: 'remove', id: parts[1] };
-                }
-                case 'background': {
-                    // L’argomento è un colore (identificatore o esadecimale)
-                    const parts = trimmed.split(/\s+/);
-                    if (parts.length < 2) {
-                        throw new Error('background senza valore');
-                    }
-                    idx++;
-                    return { type: 'style', property: 'background', value: parts[1] };
-                }
-                case 'foreground': {
-                    const parts = trimmed.split(/\s+/);
-                    if (parts.length < 2) {
-                        throw new Error('foreground senza valore');
-                    }
-                    idx++;
-                    return { type: 'style', property: 'foreground', value: parts[1] };
-                }
-                case 'font': {
-                    // Può essere stringa con spazi (tra apici) o identificatore
-                    // Cerchiamo se c’è un apice
-                    const quoteIndex = trimmed.indexOf('"');
-                    let fontValue;
-                    if (quoteIndex !== -1) {
-                        const { value } = parseStringLiteral(trimmed, quoteIndex);
-                        fontValue = value;
-                    } else {
-                        const parts = trimmed.split(/\s+/);
-                        if (parts.length < 2) {
-                            throw new Error('font senza valore');
-                        }
-                        fontValue = parts[1];
-                    }
-                    idx++;
-                    return { type: 'style', property: 'font', value: fontValue };
-                }
-                case 'fontsize': {
-                    const parts = trimmed.split(/\s+/);
-                    if (parts.length < 2) {
-                        throw new Error('fontsize senza valore');
-                    }
-                    const size = parseInt(parts[1], 10);
-                    if (isNaN(size)) {
-                        throw new Error('fontsize non valido');
-                    }
-                    idx++;
-                    return { type: 'style', property: 'fontsize', value: size };
                 }
                 case 'choice': {
                     // La sintassi è: choice "testo"\n  ... istruzioni ...\nend
@@ -697,27 +621,6 @@
                     break;
                 case 'remove':
                     removeItem(stmt.id);
-                    break;
-                case 'style':
-                    {
-                        const prop = stmt.property;
-                        const val = stmt.value;
-                        if (prop === 'background') {
-                            styleState.background = val;
-                            applyGlobalStyle();
-                        } else if (prop === 'foreground') {
-                            styleState.foreground = val;
-                            applyGlobalStyle();
-                        } else if (prop === 'font') {
-                            // se il font contiene spazi, racchiudilo in apici
-                            // In JS, font-family può essere una lista, la virgola e gli apici sono gestiti nel file CSS
-                            styleState.font = val;
-                            applyGlobalStyle();
-                        } else if (prop === 'fontsize') {
-                            styleState.fontsize = val;
-                            applyGlobalStyle();
-                        }
-                    }
                     break;
                 case 'if':
                     {
