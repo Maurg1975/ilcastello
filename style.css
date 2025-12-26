@@ -64,8 +64,13 @@ body {
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s;
 }
-.choice-button:hover,
+/* Niente effetto hover: il pulsante non cambia al passaggio del mouse */
+.choice-button:hover {
+  background-color: transparent;
+  color: inherit;
+}
+/* Manteniamo solo un feedback minimo per tastiera (accessibilità) */
 .choice-button:focus {
-  background-color: currentColor;
-  color: #000;
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
