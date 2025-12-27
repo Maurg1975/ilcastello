@@ -42,6 +42,9 @@
 
     let i18n = {};
     let currentLang = 'it';
+
+    let vintageMode = false;      // mode=txt => true
+    let currentSceneId = 'CH0';   // scena corrente (per ricavare @SCENA_DESC_VINTAGE)
     
     // Se la stringa è una chiave tipo "@CH1_DESC_SHORT", la risolve.
     // Altrimenti la stampa così com’è.
@@ -621,7 +624,13 @@
                     printLine(t(stmt.value));
                     break;
                 case 'image':
-                    showImage(stmt.value);
+                    if (!vintageMode) {
+                        showImage(stmt.value);
+                    } else {
+                        // In modalità testo: niente immagine, stampo la descrizione alternativa della scena
+                        // Convenzione: chiave = "@<SCENA>_DESC_VINTAGE"
+                        printLine(t(`@${currentSceneId}_DESC_VINTAGE`));
+                    }
                     break;
                 case 'set':
                     setFlag(stmt.id);
@@ -693,6 +702,7 @@
      * @param {string} sceneId
      */
     async function runScene(sceneId) {
+      currentSceneId = sceneId;
       // Pulisce la scena precedente (testo + immagini)
       mediaDiv.innerHTML = '';
       // rimuovi tutte le righe testo ma NON il contenitore scelte
@@ -734,6 +744,8 @@
             // lingua da URL: ?lang=en (default it)
             const params = new URLSearchParams(window.location.search);
             currentLang = params.get('lang') || 'it';
+            const mode = params.get('mode') || 'img'; // img | txt
+            vintageMode = (mode === 'txt');
             
             // carica dizionario
             try {
