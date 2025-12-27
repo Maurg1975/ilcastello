@@ -1,12 +1,12 @@
 scene CH0
     image "images/ilcastello.png"
-    choice "Avanzare verso il sentiero"
+    choice "@CH0_C1"
         go CH1_SPIAGGIA
     end
 
 scene CH1_SPIAGGIA
     image "images/spiaggia.png"
-    print "La spiaggia è silenziosa."
-    choice "Avanzare verso il sentiero"
+    print "@CH1_DESC_SHORT"
+    choice "@CH1_C1"
         go CH2
     end
