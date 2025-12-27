@@ -40,6 +40,19 @@
     gameDiv.appendChild(mediaDiv);
     gameDiv.appendChild(textDiv);
 
+    let i18n = {};
+    let currentLang = 'it';
+    
+    // Se la stringa è una chiave tipo "@CH1_DESC_SHORT", la risolve.
+    // Altrimenti la stampa così com’è.
+    function t(s) {
+      if (typeof s === 'string' && s.startsWith('@')) {
+        const key = s.slice(1);
+        return (key in i18n) ? i18n[key] : `[MISSING:${key}]`;
+      }
+      return s;
+    }
+
     
     /**
      * Stato globale del gioco. Mantiene due insiemi: uno per le
@@ -121,7 +134,7 @@
             choiceBlocks.forEach(choice => {
                 const btn = document.createElement('button');
                 btn.className = 'choice-button';
-                btn.textContent = choice.text;
+                btn.textContent = t(choice.text);
                 btn.addEventListener('click', () => {
                     // Rimuove i pulsanti dopo la selezione
                     choicesDiv.innerHTML = '';
@@ -605,7 +618,7 @@
             const stmt = statements[i];
             switch (stmt.type) {
                 case 'print':
-                    printLine(stmt.value);
+                    printLine(t(stmt.value));
                     break;
                 case 'image':
                     showImage(stmt.value);
@@ -717,6 +730,18 @@
                     throw new Error('Impossibile caricare il file scenes.csl');
                 }
                 text = await response.text();
+            }
+            // lingua da URL: ?lang=en (default it)
+            const params = new URLSearchParams(window.location.search);
+            currentLang = params.get('lang') || 'it';
+            
+            // carica dizionario
+            try {
+              const r = await fetch(`i18n/${currentLang}.json`);
+              if (r.ok) i18n = await r.json();
+              else i18n = {};
+            } catch {
+              i18n = {};
             }
             scenes = parseScript(text);
             await runScene('CH0');
