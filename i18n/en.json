@@ -1,6 +1,7 @@
 {
-  "CH0_C1": "Walk toward the path",
-  "CH1_DESC_SHORT": "The beach is silent.",
-  "CH1_DESC_VINTAGE": "The beach is silent. You can see the sea...",
-  "CH1_C1": "Walk toward the path"
+  "CH0_DESC_SHORT": "The Castle\nWritten by Maurizio Galeone\n",
+  "CH0_C1": "Begin",
+  "CH1_SPIAGGIA_DESC_SHORT": "The beach is silent.",
+  "CH1_SPIAGGIA_DESC_VINTAGE": "You are on the beach...\nA you can see the sea...",
+  "CH1_C1": "Proceed"
 }
