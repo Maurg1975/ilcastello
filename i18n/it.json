@@ -1,6 +1,7 @@
 {
-  "CH0_C1": "Avanzare verso il sentiero",
-  "CH1_DESC_SHORT": "La spiaggia è silenziosa.",
-  "CH1_DESC_VINTAGE": "Ti trovi sulla spiaggia...\nA sinistra il mare...",
+  "CH0_DESC_SHORT": "<center><h1>Il Castello</h1></center><br/></br>Scritto da Maurizio Galeone",
+  "CH0_C1": "Inizia",
+  "CH1_SPIAGGIA_DESC_SHORT": "La spiaggia è silenziosa.",
+  "CH1_SPIAGGIA_DESC_VINTAGE": "Ti trovi sulla spiaggia...\nA sinistra il mare...",
   "CH1_C1": "Avanzare verso il sentiero"
 }
