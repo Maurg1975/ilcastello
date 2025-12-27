@@ -1,12 +1,20 @@
 scene CH0
-    image "images/ilcastello.png"
+    if not vintage_mode then
+        image "images/ch0_ilcastello.png"
+    end
+    print "@CH0_DESC_SHORT"
     choice "@CH0_C1"
         go CH1_SPIAGGIA
     end
 
 scene CH1_SPIAGGIA
-    image "images/spiaggia.png"
-    print "@CH1_DESC_SHORT"
+    if vintage_mode then
+      print "@CH1_SPIAGGIA_DESC_VINTAGE"
+    else
+      image "images/ch1_spiaggia.png"
+      print "@CH1_SPIAGGIA_DESC_SHORT"
+    end
     choice "@CH1_C1"
         go CH2
     end
+
