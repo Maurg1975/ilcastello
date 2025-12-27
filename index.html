@@ -1,32 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Il Castello</title>
-    <!-- Link to external stylesheet for the game engine -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Il Castello</title>
+  <style>
+    body{margin:0; background:#000; color:#fff; font-family:serif; display:flex; min-height:100vh; align-items:center; justify-content:center;}
+    .box{max-width:520px; padding:24px; text-align:center;}
+    a{display:block; padding:12px 16px; margin:12px 0; border:1px solid #fff; color:#fff; text-decoration:none;}
+  </style>
 </head>
 <body>
-    <!-- Main container for textual content and images -->
-    <div id="game" class="game-container"></div>
-
-    <!-- Container where choices will be rendered -->
-    <div id="choices" class="choices-container"></div>
-
-    <!-- Fallback message shown if the script fails to load -->
-    <noscript>È necessario abilitare JavaScript per eseguire il gioco.</noscript>
-
-    <!--
-      L’elemento sottostante può contenere il codice CSL delle scene.
-      Se lasciato vuoto, il motore tenterà di caricare il file
-      "scenes.csl" tramite fetch. Per evitare problemi di permessi
-      quando si apre il file con protocollo file://, è consigliabile
-      incollare qui il contenuto del file .csl oppure servire il
-      progetto tramite un server HTTP.
-    -->
-
-    <!-- Include il motore del gioco -->
-    <script src="app.js"></script>
+  <div class="box">
+    <h1>Il Castello</h1>
+    <a href="game.html?lang=it">Italiano</a>
+    <a href="game.html?lang=en">English</a>
+  </div>
 </body>
 </html>
