@@ -25,8 +25,9 @@ scene CH1_SPIAGGIA_MARE
     end
     print "@CH1_SPIAGGIA_MARE_DESC"
     choice "@CH1_SPIAGGIA_MARE_C1"
-        go CH1_SPIAGGIA_MARE
+        go CH1_SPIAGGIA
     end
+
 
 
 
