@@ -12,7 +12,11 @@ scene CH1_SPIAGGIA
         image "images/ch1_spiaggia.png"
     end
     print "@CH1_SPIAGGIA_DESC"
+    choice "@CH1_C2"
+        go CH2
+    end
     choice "@CH1_C1"
         go CH2
     end
+
 
