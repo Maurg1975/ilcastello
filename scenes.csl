@@ -12,11 +12,20 @@ scene CH1_SPIAGGIA
         image "images/ch1_spiaggia.png"
     end
     print "@CH1_SPIAGGIA_DESC"
-    choice "@CH1_C2"
-        print "@CH1_SPIAGGIA_MARE_DESC"
+    choice "@CH1_SPIAGGIA_C2"
+        go CH1_SPIAGGIA_MARE
     end
-    choice "@CH1_C1"
+    choice "@CH1_SPIAGGIA_C1"
         go CH2
+    end
+
+scene CH1_SPIAGGIA_MARE
+    if not vintage_mode then
+        image "images/ch1_spiaggia.png"
+    end
+    print "@CH1_SPIAGGIA_MARE_DESC"
+    choice "@CH1_SPIAGGIA_MARE_C1"
+        go CH1_SPIAGGIA_MARE
     end
 
 
