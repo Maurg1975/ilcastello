@@ -9,7 +9,7 @@ scene CH0
 
 scene CH1_SPIAGGIA
     if not vintage_mode then
-        image "images/ch1_spiaggia.png"
+        image "images/ch1_spiaggia.jpg"
     end
     print "@CH1_SPIAGGIA_DESC"
     choice "@CH1_SPIAGGIA_C2"
@@ -27,7 +27,3 @@ scene CH1_SPIAGGIA_MARE
     choice "@CH1_SPIAGGIA_MARE_C1"
         go CH1_SPIAGGIA
     end
-
-
-
-
