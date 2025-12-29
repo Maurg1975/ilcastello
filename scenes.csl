@@ -96,10 +96,11 @@ scene CH1_SCOGLIERA_MARE
 
 scene CH1_SCOGLIERA_ROCCIA
     if not vintage_mode then
-        image "images/ch1_scogliera_roccia.png"
+        image "images/ch1_scogliera.png"
     end
     print "@CH1_SCOGLIERA_ROCCIA_DESC"
     choice "@CONTINUE"
         go CH1_SCOGLIERA
     end
+
 
