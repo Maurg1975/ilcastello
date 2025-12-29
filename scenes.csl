@@ -15,6 +15,9 @@ scene CH1_SPIAGGIA
     choice "@CH1_SPIAGGIA_C2"
         go CH1_SPIAGGIA_MARE
     end
+    choice "@CH1_SPIAGGIA_C3"
+        go CH1_SPIAGGIA_CASTELLO
+    end
     choice "@CH1_SPIAGGIA_C1"
         go CH2
     end
@@ -36,3 +39,4 @@ scene CH1_SPIAGGIA_CASTELLO
     choice "@CONTINUE"
         go CH1_SPIAGGIA
     end
+
