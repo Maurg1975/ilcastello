@@ -51,6 +51,9 @@ scene CH1_SENTIERO
     choice "@CH1_SENTIERO_C2"
         go CH1_SENTIERO_ROCCIA
     end
+    choice "@CH1_SENTIERO_C3"
+        go CH1_SCOGLIERA
+    end
 
 scene CH1_SENTIERO_MARE
     if not vintage_mode then
@@ -99,3 +102,4 @@ scene CH1_SCOGLIERA_ROCCIA
     choice "@CONTINUE"
         go CH1_SCOGLIERA
     end
+
