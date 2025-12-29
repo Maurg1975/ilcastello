@@ -24,7 +24,15 @@ scene CH1_SPIAGGIA_MARE
         image "images/ch1_spiaggia.jpg"
     end
     print "@CH1_SPIAGGIA_MARE_DESC"
-    choice "@CH1_SPIAGGIA_MARE_C1"
+    choice "@CONTINUE"
         go CH1_SPIAGGIA
     end
 
+scene CH1_SPIAGGIA_CASTELLO
+    if not vintage_mode then
+        image "images/ch1_castello.png"
+    end
+    print "@CH1_SPIAGGIA_CASTELLO_DESC"
+    choice "@CONTINUE"
+        go CH1_SPIAGGIA
+    end
