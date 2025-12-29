@@ -46,8 +46,26 @@ scene CH1_SENTIERO
     end
     print "@CH1_SENTIERO_DESC"
     choice "@CH1_SENTIERO_C1"
-        go CH1_SPIAGGIA_MARE
+        go CH1_SENTIERO_MARE
     end
     choice "@CH1_SENTIERO_C2"
-        go CH1_SPIAGGIA_CASTELLO
+        go CH1_SENTIERO_ROCCIA
+    end
+
+scene CH1_SENTIERO_MARE
+    if not vintage_mode then
+        image "images/ch1_sentiero_mare.png"
+    end
+    print "@CH1_SENTIERO_MARE_DESC"
+    choice "@CONTINUE"
+        go CH1_SENTIERO
+    end
+
+scene CH1_SENTIERO_ROCCIA
+    if not vintage_mode then
+        image "images/ch1_sentiero_roccia.png"
+    end
+    print "@CH1_SENTIERO_ROCCIA_DESC"
+    choice "@CONTINUE"
+        go CH1_SENTIERO
     end
