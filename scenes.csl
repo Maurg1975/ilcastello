@@ -19,7 +19,7 @@ scene CH1_SPIAGGIA
         go CH1_SPIAGGIA_CASTELLO
     end
     choice "@CH1_SPIAGGIA_C1"
-        go CH2
+        go CH1_SENTIERO
     end
 
 scene CH1_SPIAGGIA_MARE
@@ -40,3 +40,14 @@ scene CH1_SPIAGGIA_CASTELLO
         go CH1_SPIAGGIA
     end
 
+scene CH1_SENTIERO
+    if not vintage_mode then
+        image "images/ch1_sentiero.png"
+    end
+    print "@CH1_SENTIERO_DESC"
+    choice "@CH1_SENTIERO_C1"
+        go CH1_SPIAGGIA_MARE
+    end
+    choice "@CH1_SENTIERO_C2"
+        go CH1_SPIAGGIA_CASTELLO
+    end
