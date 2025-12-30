@@ -84,6 +84,9 @@ scene CH1_SCOGLIERA
     choice "@CH1_SCOGLIERA_C2"
         go CH1_SCOGLIERA_ROCCIA
     end
+    choice "@CH1_SCOGLIERA_C3"
+        go CH1_SCOGLIERAALTA
+    end
 
 scene CH1_SCOGLIERA_MARE
     if not vintage_mode then
@@ -103,4 +106,32 @@ scene CH1_SCOGLIERA_ROCCIA
         go CH1_SCOGLIERA
     end
 
+scene CH1_SCOGLIERAALTA
+    if not vintage_mode then
+        image "images/ch1_scoglieraalta.png"
+    end
+    print "@CH1_SCOGLIERAALTA_DESC"
+    choice "@CH1_SCOGLIERAALTA_C1"
+        go CH1_SCOGLIERAALTA_MARE
+    end
+    choice "@CH1_SCOGLIERAALTA_C2"
+        go CH1_SCOGLIERAALTA_ROCCIA
+    end
 
+scene CH1_SCOGLIERAALTA_MARE
+    if not vintage_mode then
+        image "images/ch1_scoglieraalta_mare.png"
+    end
+    print "@CH1_SCOGLIERAALTA_MARE_DESC"
+    choice "@CONTINUE"
+        go CH1_SCOGLIERAALTA
+    end
+
+scene CH1_SCOGLIERAALTA_ROCCIA
+    if not vintage_mode then
+        image "images/ch1_scoglieraalta_roccia.png"
+    end
+    print "@CH1_SCOGLIERAALTA_ROCCIA_DESC"
+    choice "@CONTINUE"
+        go CH1_SCOGLIERAALTA
+    end
