@@ -144,3 +144,48 @@ scene CH1_ARCO
         image "images/ch1_arco.png"
     end
     print "@CH1_ARCO_DESC"
+    choice "@CH1_ARCO_C1"
+        go CH2_RADURA
+    end
+
+scene CH2_RADURA
+    if not vintage_mode then
+        image "images/ch2_radura.png"
+    end
+    print "@CH2_RADURA_DESC"
+    choice "@CH2_RADURA_C1"
+        go CH2_RADURA_SCOGLIERA
+    end
+    choice "@CH2_RADURA_C2"
+        go CH2_RADURA_FIORI
+    end
+
+scene CH2_RADURA_SCOGLIERA
+    if not vintage_mode then
+        image "images/ch2_radura_scogliera.png"
+    end
+    print "@CH2_RADURA_SCOGLIERA_DESC"
+    choice "@CONTINUE"
+        go CH2_RADURA
+    end
+
+scene CH2_RADURA_FIORI
+    if not vintage_mode then
+        image "images/ch2_radura_fiori.png"
+    end
+    print "@CH2_RADURA_FIORI_DESC"
+    choice "@CH2_RADURA_FIORI_C1"
+        go CH2_RADURA_MAZZO
+    end
+    choice "@CONTINUE"
+        go CH2_RADURA
+    end
+
+scene CH2_RADURA_MAZZO
+    if not vintage_mode then
+        image "images/ch2_radura_mazzo.png"
+    end
+    print "@CH2_RADURA_MAZZO_DESC"
+    choice "@CONTINUE"
+        go CH2_RADURA
+    end
