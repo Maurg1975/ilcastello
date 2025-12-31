@@ -272,7 +272,7 @@ scene CH2_CROCEVIA
 
 scene CH2_FORESTA_CASTELLO
     if not vintage_mode then
-        image "images/ch2_foresta_albero.png"
+        image "images/ch2_foresta_castello.png"
     end
     print "@CH2_FORESTA_CASTELLO_DESC"
     choice "@CH2_FORESTA_CASTELLO_C1"
@@ -290,3 +290,4 @@ scene CH2_FORESTA_PORCOSPINI
     choice "@CONTINUE"
         go CH2_FORESTA_CASTELLO
     end
+
