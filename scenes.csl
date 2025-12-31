@@ -189,6 +189,7 @@ scene CH2_RADURA_MAZZO
         image "images/ch2_radura_mazzo.png"
     end
     print "@CH2_RADURA_MAZZO_DESC"
+    add mazzo_fiori
     choice "@CONTINUE"
         go CH2_RADURA
     end
@@ -198,7 +199,55 @@ scene CH2_FORESTA
         image "images/ch2_foresta.png"
     end
     print "@CH2_FORESTA_DESC"
-    choice "@CH2_FORESTA_C4"
+    choice "@CH2_FORESTA_C1"
         go CH2_RADURA
     end
+    choice "@CH2_FORESTA_C2"
+        go CH2_FORESTA_ALBERO
+    end
 
+scene CH2_FORESTA_ALBERO
+    if not vintage_mode then
+        image "images/ch2_foresta_albero.png"
+    end
+    print "@CH2_FORESTA_ALBERO_DESC"
+    choice "@CH2_FORESTA_ALBERO_C1"
+        go CH2_ALBERO_FENDITURA
+    end
+    choice "@CONTINUE"
+        go CH2_FORESTA
+    end
+
+scene CH2_ALBERO_FENDITURA
+    if not vintage_mode then
+        image "images/ch2_albero_fenditura.png"
+    end
+    print "@CH2_ALBERO_FENDITURA_DESC"
+    choice "@CH2_ALBERO_FENDITURA_C1"
+        go CH2_FENDITURA_LAMINA
+    end
+    choice "@CONTINUE"
+        go CH2_FORESTA
+    end
+
+scene CH2_FENDITURA_LAMINA
+    if not vintage_mode then
+        image "images/ch2_albero_fenditura.png"
+    end
+    print "@CH2_FENDITURA_LAMINA_DESC"
+    choice "@CH2_FENDITURA_LAMINA_C1"
+        go CH2_LAMINA
+    end
+    choice "@CONTINUE"
+        go CH2_FORESTA
+    end
+
+scene CH2_LAMINA
+    if not vintage_mode then
+        image "images/ch2_lamina.png"
+    end
+    print "@CH2_LAMINA_DESC"
+    add lamina
+    choice "@CONTINUE"
+        go CH2_FORESTA
+    end
