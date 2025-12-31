@@ -202,8 +202,10 @@ scene CH2_FORESTA
     choice "@CH2_FORESTA_C1"
         go CH2_RADURA
     end
-    choice "@CH2_FORESTA_C2"
-        go CH2_FORESTA_ALBERO
+    if not has lamina then
+        choice "@CH2_FORESTA_C2"
+            go CH2_FORESTA_ALBERO
+        end
     end
     choice "@CH2_FORESTA_C3"
         go CH2_CROCEVIA
@@ -290,4 +292,5 @@ scene CH2_FORESTA_PORCOSPINI
     choice "@CONTINUE"
         go CH2_FORESTA_CASTELLO
     end
+
 
