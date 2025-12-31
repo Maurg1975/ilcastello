@@ -656,28 +656,51 @@
                     // Naviga verso la scena indicata
                     await runScene(stmt.target);
                     return 'goto';
-                case 'choice':
-                    {
-                        // Raccoglie tutte le scelte consecutive
-                        const choiceList = [];
-                        let j = i;
-                        while (j < statements.length && statements[j].type === 'choice') {
-                            choiceList.push(statements[j]);
-                            j++;
-                        }
-                        // Spostiamo l’indice alla fine del blocco di scelte
-                        i = j - 1;
-                        // Visualizza le scelte e aspetta la selezione
-                        const selectedStatements = await handleChoices(choiceList);
-                        // Esegui le istruzioni associate alla scelta selezionata
-                        const res = await runStatements(selectedStatements);
-                        if (res === 'goto') {
-                            return 'goto';
-                        }
-                        // Dopo aver eseguito la scelta, prosegue con le
-                        // istruzioni rimanenti (non incluse nelle scelte)
-                        continue;
+                case 'choice': {
+                  // Raccoglie scelte consecutive, includendo eventuali IF che contengono SOLO choice
+                  const choiceList = [];
+                  let j = i;
+                
+                  function isChoiceOnlyBlock(stmts) {
+                    return Array.isArray(stmts) && stmts.length > 0 && stmts.every(s => s.type === 'choice');
+                  }
+                
+                  while (j < statements.length) {
+                    const s = statements[j];
+                
+                    if (s.type === 'choice') {
+                      choiceList.push(s);
+                      j++;
+                      continue;
                     }
+                
+                    // Supporta: if <cond> then (choice...) [else (choice...)] end
+                    if (s.type === 'if') {
+                      const cond = evalBool(s.condition);
+                      const branch = cond ? s.thenStmts : (s.elseStmts || []);
+                
+                      if (isChoiceOnlyBlock(branch)) {
+                        choiceList.push(...branch);
+                        j++;
+                        continue;
+                      }
+                
+                      // se l'if contiene altro oltre a choice, fermati (non possiamo trattarlo come "menu")
+                      break;
+                    }
+                
+                    // altro statement -> fine blocco scelte
+                    break;
+                  }
+                
+                  // Sposta l’indice alla fine del blocco "menu"
+                  i = j - 1;
+                
+                  const selectedStatements = await handleChoices(choiceList);
+                  const res = await runStatements(selectedStatements);
+                  if (res === 'goto') return 'goto';
+                  continue;
+                }
                 default:
                     // Tipo non riconosciuto: ignoralo
                     break;
