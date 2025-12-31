@@ -263,4 +263,30 @@ scene CH2_CROCEVIA
     choice "@CH2_CROCEVIA_C1"
         go CH2_FORESTA
     end
+    choice "@CH2_CROCEVIA_C2"
+        go CH2_FORESTA_VILLAGGIO
+    end
+    choice "@CH2_CROCEVIA_C3"
+        go CH2_FORESTA_CASTELLO
+    end
 
+scene CH2_FORESTA_CASTELLO
+    if not vintage_mode then
+        image "images/ch2_foresta_albero.png"
+    end
+    print "@CH2_FORESTA_CASTELLO_DESC"
+    choice "@CH2_FORESTA_CASTELLO_C1"
+        go CH2_CROCEVIA
+    end
+    choice "@CH2_FORESTA_CASTELLO_C2"
+        go CH2_FORESTA_PORCOSPINI
+    end
+
+scene CH2_FORESTA_PORCOSPINI
+    if not vintage_mode then
+        image "images/ch2_foresta_porcospini.png"
+    end
+    print "@CH2_FORESTA_PORCOSPINI_DESC"
+    choice "@CONTINUE"
+        go CH2_FORESTA_CASTELLO
+    end
