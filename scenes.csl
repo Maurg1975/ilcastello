@@ -251,3 +251,12 @@ scene CH2_LAMINA
     choice "@CONTINUE"
         go CH2_FORESTA
     end
+
+scene CH2_CROCEVIA
+    if not vintage_mode then
+        image "images/ch2_crocevia.png"
+    end
+    print "@CH2_CROCEVIA_DESC"
+    choice "@CH2_CROCEVIA_C1"
+        go CH2_FORESTA
+    end
