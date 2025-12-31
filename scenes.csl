@@ -198,6 +198,7 @@ scene CH2_FORESTA
         image "images/ch2_foresta.png"
     end
     print "@CH2_FORESTA_DESC"
-    choice "@CH2_FORESTA_C2"
+    choice "@CH2_FORESTA_C4"
         go CH2_RADURA
     end
+
