@@ -205,6 +205,9 @@ scene CH2_FORESTA
     choice "@CH2_FORESTA_C2"
         go CH2_FORESTA_ALBERO
     end
+    choice "@CH2_FORESTA_C3"
+        go CH2_CROCEVIA
+    end
 
 scene CH2_FORESTA_ALBERO
     if not vintage_mode then
@@ -260,3 +263,4 @@ scene CH2_CROCEVIA
     choice "@CH2_CROCEVIA_C1"
         go CH2_FORESTA
     end
+
