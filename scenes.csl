@@ -159,6 +159,9 @@ scene CH2_RADURA
     choice "@CH2_RADURA_C2"
         go CH2_RADURA_FIORI
     end
+    choice "@CH2_RADURA_C3"
+        go CH2_FORESTA
+    end
 
 scene CH2_RADURA_SCOGLIERA
     if not vintage_mode then
@@ -189,3 +192,9 @@ scene CH2_RADURA_MAZZO
     choice "@CONTINUE"
         go CH2_RADURA
     end
+
+scene CH2_FORESTA
+    if not vintage_mode then
+        image "images/ch2_foresta.png"
+    end
+    print "@CH2_FORESTA_DESC"
