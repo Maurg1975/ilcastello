@@ -285,6 +285,9 @@ scene CH2_FORESTA_CASTELLO
     choice "@CH2_FORESTA_CASTELLO_C2"
         go CH2_FORESTA_PORCOSPINI
     end
+    choice "@CH2_FORESTA_CASTELLO_C3"
+        go CH2_PONTE
+    end
 
 scene CH2_FORESTA_PORCOSPINI
     if not vintage_mode then
@@ -295,6 +298,14 @@ scene CH2_FORESTA_PORCOSPINI
         go CH2_FORESTA_CASTELLO
     end
 
-
-
-
+scene CH2_PONTE
+    if not vintage_mode then
+        image "images/ch2_ponte.png"
+    end
+    print "@CH2_PONTE_DESC"
+    choice "@CH2_PONTE_C1"
+        go CH2_FORESTA_CASTELLO
+    end
+    choice "@CH2_PONTE_C2"
+        go CH2_CASTELLO
+    end
