@@ -346,7 +346,7 @@ scene CH2_CASTELLO_PORTELLA
         go CH2_CASTELLO_PORTELLA_BATOCCHIO
     end
     choice "@CH2_CASTELLO_PORTELLA_C3"
-        if not dama_nel_castello 
+        if not dama_nel_castello then
             go CH2_CASTELLO_PORTELLA_NESSUNO
         end
     end
@@ -368,3 +368,4 @@ scene CH2_CASTELLO_PORTELLA_NESSUNO
     choice "@CONTINUE"
         go CH2_CASTELLO_PORTELLA
     end
+
