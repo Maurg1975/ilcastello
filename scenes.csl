@@ -307,5 +307,41 @@ scene CH2_PONTE
         go CH2_FORESTA_CASTELLO
     end
     choice "@CH2_PONTE_C2"
-        go CH2_CASTELLO
+        go CH2_CASTELLO_PORTONE
+    end
+
+scene CH2_CASTELLO_PORTONE
+    if not vintage_mode then
+        image "images/ch2_castello_portone.png"
+    end
+    print "@CH2_CASTELLO_PORTONE_DESC"
+    choice "@CH2_CASTELLO_PORTONE_C1"
+        go CH2_PONTE
+    end
+    choice "@CH2_CASTELLO_PORTONE_C2"
+        go CH2_CASTELLO_PORTONE_ALTO
+    end
+    choice "@CH2_CASTELLO_PORTONE_C3"
+        go CH2_CASTELLO_PORTELLA
+    end
+
+scene CH2_CASTELLO_PORTONE_ALTO
+    if not vintage_mode then
+        image "images/ch2_castello_portone_alto.png"
+    end
+    print "@CH2_CASTELLO_PORTONE_ALTO_DESC"
+    choice "@CONTINUE"
+        go CH2_CASTELLO_PORTONE
+    end
+
+scene CH2_CASTELLO_PORTELLA
+    if not vintage_mode then
+        image "images/ch2_castello_portella.png"
+    end
+    print "@CH2_CASTELLO_PORTELLA_DESC"
+    choice "@CH2_CASTELLO_PORTELLA_C1"
+        go CH2_CASTELLO_PORTONE
+    end
+    choice "@CH2_CASTELLO_PORTELLA_C2"
+        go CH2_CASTELLO_BATOCCHIO
     end
