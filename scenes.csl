@@ -343,14 +343,15 @@ scene CH2_CASTELLO_PORTELLA
         go CH2_CASTELLO_PORTONE
     end
     choice "@CH2_CASTELLO_PORTELLA_C2"
-        go CH2_CASTELLO_BATOCCHIO
+        go CH2_CASTELLO_PORTELLA_BATOCCHIO
     end
 
-scene CH2_CASTELLO_BATOCCHIO
+scene CH2_CASTELLO_PORTELLA_BATOCCHIO
     if not vintage_mode then
         image "images/ch2_castello_portella.png"
     end
-    print "@CH2_CASTELLO_BATOCCHIO_DESC"
+    print "@CH2_CASTELLO_PORTELLA_BATOCCHIO_DESC"
     choice "@CONTINUE"
         go CH2_CASTELLO_PORTELLA
     end
+
