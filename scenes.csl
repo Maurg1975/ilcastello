@@ -369,3 +369,20 @@ scene CH2_CASTELLO_PORTELLA_NESSUNO
         go CH2_CASTELLO_PORTELLA
     end
 
+scene CH2_FORESTA_VILLAGGIO
+    if not vintage_mode then
+        image "images/ch2_foresta_villaggio.png"
+    end
+    print "@CH2_FORESTA_VILLAGGIO_DESC"
+    choice "@CH2_FORESTA_VILLAGGIO_C1"
+        go CH2_CROCEVIA
+    end
+    choice "@CH2_FORESTA_VILLAGGIO_C2"
+        go CH2_VILLAGGIO_PIAZZA
+    end
+
+scene CH2_VILLAGGIO_PIAZZA
+    if not vintage_mode then
+        image "images/ch2_villaggio_piazza.png"
+    end
+    print "@CH2_VILLAGGIO_PIAZZA_DESC"
