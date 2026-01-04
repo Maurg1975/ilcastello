@@ -424,6 +424,9 @@ scene CH3_FABBRO_APERTO
     choice "@CH3_FABBRO_APERTO_C3"
         go CH3_FABBRO_INCUDINE
     end
+    choice "@CH3_FABBRO_APERTO_C4"
+        go CH3_FABBRO
+    end
 
 scene CH3_FABBRO_FORGIA
     if not vintage_mode then
@@ -441,4 +444,28 @@ scene CH3_FABBRO_INCUDINE
     print "@CH3_FABBRO_INCUDINE_DESC"
     choice "@CONTINUE"
         go CH3_FABBRO_APERTO
+    end
+
+scene CH3_FABBRO
+    if not vintage_mode then
+        image "images/ch3_fabbro.png"
+    end
+    print "@CH3_FABBRO_DESC"
+    choice "@CH3_FABBRO_C1"
+        go CH3_FABBRO_APERTO
+    end
+    choice "@CH3_FABBRO_C2"
+        go CH3_FABBRO_ATTREZZI
+    end
+    choice "@CH3_FABBRO_C3"
+        go CH3_FABBRO_LAMINA
+    end
+
+scene CH3_FABBRO_ATTREZZI
+    if not vintage_mode then
+        image "images/ch3_fabbro.png"
+    end
+    print "@CH3_FABBRO_ATTREZZI_DESC"
+    choice "@CONTINUE"
+        go CH3_FABBRO
     end
