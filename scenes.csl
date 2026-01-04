@@ -418,4 +418,27 @@ scene CH3_FABBRO_APERTO
     choice "@CH3_FABBRO_APERTO_C1"
         go CH2_VILLAGGIO_PIAZZA
     end
+    choice "@CH3_FABBRO_APERTO_C2"
+        go CH3_FABBRO_FORGIA
+    end
+    choice "@CH3_FABBRO_APERTO_C3"
+        go CH3_FABBRO_INCUDINE
+    end
 
+scene CH3_FABBRO_FORGIA
+    if not vintage_mode then
+        image "images/ch3_fabbro_aperto.png"
+    end
+    print "@CH3_FABBRO_FORGIA_DESC"
+    choice "@CONTINUE"
+        go CH3_FABBRO_APERTO
+    end
+
+scene CH3_FABBRO_INCUDINE
+    if not vintage_mode then
+        image "images/ch3_fabbro_aperto.png"
+    end
+    print "@CH3_FABBRO_INCUDINE_DESC"
+    choice "@CONTINUE"
+        go CH3_FABBRO_APERTO
+    end
