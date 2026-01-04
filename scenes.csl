@@ -393,11 +393,9 @@ scene CH2_VILLAGGIO_PIAZZA
         choice "@CH2_VILLAGGIO_PIAZZA_C3"
             go CH3_FABBRO_APERTO
         end
-    else
-        if has lamina then
-            choice "@CH2_VILLAGGIO_PIAZZA_C2"
-                go CH2_STRADA_FABBRO
-            end
+    if has lamina then
+        choice "@CH2_VILLAGGIO_PIAZZA_C2"
+            go CH2_STRADA_FABBRO
         end
     end
     if strada_falegname then
@@ -549,3 +547,4 @@ scene CH3_FALEGNAME_MUCCA
     choice "@CONTINUE"
         go CH3_FALEGNAME
     end
+
