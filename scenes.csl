@@ -389,14 +389,20 @@ scene CH2_VILLAGGIO_PIAZZA
     choice "@CH2_VILLAGGIO_PIAZZA_C1"
         go CH2_FORESTA_VILLAGGIO
     end
-    if has lamina then
-        choice "@CH2_VILLAGGIO_PIAZZA_C2"
-            go CH2_STRADA_FABBRO
-        end
-    end
     if strada_fabbro then
         choice "@CH2_VILLAGGIO_PIAZZA_C3"
             go CH3_FABBRO_APERTO
+        end
+    else
+        if has lamina then
+            choice "@CH2_VILLAGGIO_PIAZZA_C2"
+                go CH2_STRADA_FABBRO
+            end
+        end
+    end
+    if strada_falegname then
+        choice "@CH2_VILLAGGIO_PIAZZA_C4"
+            go CH3_FALEGNAME_APERTO
         end
     end
 
@@ -478,4 +484,68 @@ scene CH3_FABBRO_LAMINA
     set strada_falegname
     choice "@CONTINUE"
         go CH3_FABBRO
+    end
+    choice "@CH3_FABBRO_LAMINA_C1"
+        go CH3_FALEGNAME_APERTO
+    end
+
+scene CH3_FALEGNAME_APERTO
+    if not vintage_mode then
+        image "images/ch3_falegname_aperto.png"
+    end
+    print "@CH3_FALEGNAME_APERTO_DESC"
+    choice "@CH3_FALEGNAME_APERTO_C1"
+        go CH2_VILLAGGIO_PIAZZA
+    end
+    choice "@CH3_FALEGNAME_APERTO_C2"
+        go CH3_FALEGNAME
+    end
+
+scene CH3_FALEGNAME
+    if not vintage_mode then
+        image "images/ch3_falegname.png"
+    end
+    print "@CH3_FALEGNAME_DESC"
+    choice "@CH3_FALEGNAME_C1"
+        go CH3_FALEGNAME_APERTO
+    end
+    choice "@CH3_FALEGNAME_C2"
+        go CH3_FALEGNAME_BANCO
+    end
+    choice "@CH3_FALEGNAME_C3"
+        go CH3_FALEGNAME_TAVOLO
+    end
+    choice "@CH3_FALEGNAME_C4"
+        go CH3_FALEGNAME_MUCCA
+    end
+
+scene CH3_FALEGNAME_BANCO
+    if not vintage_mode then
+        image "images/ch3_falegname.png"
+    end
+    print "@CH3_FALEGNAME_BANCO_DESC"
+    choice "@CONTINUE"
+        go CH3_FALEGNAME
+    end
+
+scene CH3_FALEGNAME_TAVOLO
+    if not vintage_mode then
+        image "images/ch3_falegname_tavolo.png"
+    end
+    print "@CH3_FALEGNAME_TAVOLO_DESC"
+    choice "@CONTINUE"
+        go CH3_FALEGNAME
+    end
+    choice "@CH3_FALEGNAME_TAVOLO_C1"
+        go CH3_FALEGNAME_MUCCA
+    end
+
+scene CH3_FALEGNAME_MUCCA
+    if not vintage_mode then
+        image "images/ch3_falegname_mucca.png"
+    end
+    print "@CH3_FALEGNAME_MUCCA_DESC"
+    add mucca
+    choice "@CONTINUE"
+        go CH3_FALEGNAME
     end
