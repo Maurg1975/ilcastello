@@ -535,8 +535,10 @@ scene CH3_FALEGNAME_TAVOLO
     choice "@CONTINUE"
         go CH3_FALEGNAME
     end
-    choice "@CH3_FALEGNAME_TAVOLO_C1"
-        go CH3_FALEGNAME_MUCCA
+    if not has mucca then
+        choice "@CH3_FALEGNAME_TAVOLO_C1"
+            go CH3_FALEGNAME_MUCCA
+        end
     end
 
 scene CH3_FALEGNAME_MUCCA
@@ -548,5 +550,4 @@ scene CH3_FALEGNAME_MUCCA
     choice "@CONTINUE"
         go CH3_FALEGNAME
     end
-
 
