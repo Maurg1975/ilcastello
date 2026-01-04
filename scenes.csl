@@ -386,3 +386,35 @@ scene CH2_VILLAGGIO_PIAZZA
         image "images/ch2_villaggio_piazza.png"
     end
     print "@CH2_VILLAGGIO_PIAZZA_DESC"
+    choice "@CH2_VILLAGGIO_PIAZZA_C1"
+        go CH2_FORESTA_VILLAGGIO
+    end
+    if has lamina then
+        choice "@CH2_VILLAGGIO_PIAZZA_C2"
+            go CH2_STRADA_FABBRO
+        end
+    end
+    if strada_fabbro then
+        choice "@CH2_VILLAGGIO_PIAZZA_C3"
+            go CH3_FABBRO_APERTO
+        end
+    end
+
+scene CH2_STRADA_FABBRO
+    if not vintage_mode then
+        image "images/ch2_villaggio_piazza.png"
+    end
+    print "@CH3_STRADA_FABBRO_DESC"
+    set strada_fabbro
+    choice "@CONTINUE"
+        go CH2_VILLAGGIO_PIAZZA
+    end
+
+scene CH3_FABBRO_APERTO
+    if not vintage_mode then
+        image "images/ch3_fabbro_aperto.png"
+    end
+    print "@CH3_FABBRO_APERTO_DESC"
+    choice "@CH3_FABBRO_APERTO_C1"
+        go CH2_VILLAGGIO_PIAZZA
+    end
