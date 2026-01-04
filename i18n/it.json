@@ -103,6 +103,7 @@
   "CH3_FALEGNAME_C3": "Osserva la parete di sinistra",
   "CH3_FALEGNAME_C4": "Mostra la lamina al fabbro",
   "CH3_FALEGNAME_BANCO_DESC": "Al centro dello spazio si trova un banco da lavoro robusto, dalle gambe spesse e dal piano segnato. La superficie è coperta di trucioli sottili e ricci, frammenti di legno chiaro sparsi in modo irregolare.\nSu un lato del banco giace una tavola in lavorazione, bloccata con fermi semplici.\nAccanto, una pialla è appoggiata di traverso, come se fosse stata posata da poco.",
-  "CH3_FALEGNAME_TAVOLO_DESC": "Sulla parete di sinistra sono appesi gli utensili: seghe di diverse lunghezze, martelli, scalpelli, pialle. Sono disposti ordinatamente su supporti di legno, tutti visibili e facilmente raggiungibili.\nSotto, un secondo tavolo, più piccolo rispetto al banco centrale. In basso, una cassa aperta contiene pezzi di scarto, blocchi irregolari e listelli corti, accumulati senza fretta.\nTra i trucioli, noti la presenza di un oggetto colorato.",
-  "CH3_FALEGNAME_TAVOLO_C1": "Osserva l'oggetto tra i trucioli",
+  "CH3_FALEGNAME_TAVOLO_DESC": "Sulla parete di sinistra sono appesi gli utensili: seghe di diverse lunghezze, martelli, scalpelli, pialle. Sono disposti ordinatamente su supporti di legno, tutti visibili e facilmente raggiungibili.\nSotto, un secondo tavolo, più piccolo rispetto al banco centrale. In basso, una cassa aperta contiene pezzi di scarto, blocchi irregolari e listelli corti, accumulati senza fretta.\nCi sono trucioli ovunque, soprattutto sul piccolo tavolo.",
+  "CH3_FALEGNAME_TAVOLO_C1": "Osserva i trucioli",
+  "CH3_FALEGNAME_MUCCA_DESC": "Tra i trucioli trovi una piccola mucca, intagliata e colorata con cura!\nIl falegname nota la tua coriosità, dice che puoi prenderla.\nLa poni nella tua bisaccia."
 }
