@@ -404,7 +404,7 @@ scene CH2_STRADA_FABBRO
     if not vintage_mode then
         image "images/ch2_villaggio_piazza.png"
     end
-    print "@CH3_STRADA_FABBRO_DESC"
+    print "@CH2_STRADA_FABBRO_DESC"
     set strada_fabbro
     choice "@CONTINUE"
         go CH2_VILLAGGIO_PIAZZA
@@ -418,3 +418,4 @@ scene CH3_FABBRO_APERTO
     choice "@CH3_FABBRO_APERTO_C1"
         go CH2_VILLAGGIO_PIAZZA
     end
+
