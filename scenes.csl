@@ -469,3 +469,13 @@ scene CH3_FABBRO_ATTREZZI
     choice "@CONTINUE"
         go CH3_FABBRO
     end
+
+scene CH3_FABBRO_LAMINA
+    if not vintage_mode then
+        image "images/ch3_fabbro.png"
+    end
+    print "@CH3_FABBRO_LAMINA_DESC"
+    set strada_falegname
+    choice "@CONTINUE"
+        go CH3_FABBRO
+    end
