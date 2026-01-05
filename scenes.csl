@@ -462,8 +462,10 @@ scene CH3_FABBRO
     choice "@CH3_FABBRO_C2"
         go CH3_FABBRO_ATTREZZI
     end
-    choice "@CH3_FABBRO_C3"
-        go CH3_FABBRO_LAMINA
+    if has lamina then
+        choice "@CH3_FABBRO_C3"
+            go CH3_FABBRO_LAMINA
+        end
     end
 
 scene CH3_FABBRO_ATTREZZI
@@ -563,5 +565,6 @@ scene CH3_FALEGNAME_LAMINA
     choice "@CONTINUE"
         go CH3_FALEGNAME
     end
+
 
 
