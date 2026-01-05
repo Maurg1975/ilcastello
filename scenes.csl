@@ -551,5 +551,13 @@ scene CH3_FALEGNAME_MUCCA
         go CH3_FALEGNAME
     end
 
-
-
+scene CH3_FALEGNAME_LAMINA
+    if not vintage_mode then
+        image "images/ch3_falegname.png"
+    end
+    print "@CH3_FALEGNAME_LAMINA_DESC"
+    remove lamina
+    set cuneo
+    choice "@CONTINUE"
+        go CH3_FALEGNAME
+    end
