@@ -515,7 +515,7 @@ scene CH3_FALEGNAME
         go CH3_FALEGNAME_TAVOLO
     end
     choice "@CH3_FALEGNAME_C4"
-        go CH3_FALEGNAME_MUCCA
+        go CH3_FALEGNAME_LAMINA
     end
 
 scene CH3_FALEGNAME_BANCO
@@ -561,3 +561,4 @@ scene CH3_FALEGNAME_LAMINA
     choice "@CONTINUE"
         go CH3_FALEGNAME
     end
+
