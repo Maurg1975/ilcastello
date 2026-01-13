@@ -436,6 +436,26 @@ scene CH2_STRADA_CHIESA
         go CH2_VILLAGGIO_PIAZZA
     end
 
+scene CH3_CHIESA
+    if (not vintage_mode) and (not incontro_dama) then
+        image "images/ch3_chiesa_dama.png"
+    end
+    if (not vintage_mode) and (incontro_dama) then
+        image "images/ch3_chiesa.png"
+    end
+    if (not incontro_dama) then
+        print "@CH3_CHIESA_DAMA_DESC"
+        set incontro_dama
+    end
+    if (incontro_dama) then
+        print "@CH3_CHIESA_DESC"
+        set incontro_dama
+    end
+    choice "@CONTINUE"
+        go CH2_VILLAGGIO_PIAZZA
+    end
+
+
 scene CH3_FABBRO_APERTO
     if not vintage_mode then
         image "images/ch3_fabbro_aperto.png"
@@ -586,7 +606,3 @@ scene CH3_FALEGNAME_LAMINA
     choice "@CONTINUE"
         go CH3_FALEGNAME
     end
-
-
-
-
