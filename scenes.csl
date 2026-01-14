@@ -456,6 +456,14 @@ scene CH3_CHIESA
         go CH3_CHIESA_INTERNO
     end
 
+scene CH3_CHIESA_INTERNO
+    if (not vintage_mode) then
+        image "images/ch3_chiesa_interno.png"
+    end
+    print "@CH3_CHIESA_INTERNO_DESC"
+    choice "@CH3_CHIESA_INTERNO_C1"
+        go CH3_CHIESA
+    end
 
 scene CH3_FABBRO_APERTO
     if not vintage_mode then
@@ -607,6 +615,7 @@ scene CH3_FALEGNAME_LAMINA
     choice "@CONTINUE"
         go CH3_FALEGNAME
     end
+
 
 
 
