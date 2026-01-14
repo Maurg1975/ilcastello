@@ -449,10 +449,10 @@ scene CH3_CHIESA
         print "@CH3_CHIESA_DAMA_DESC"
         set incontro_dama
     end
-    choice "@C3_CHIESA_ESTERNO_C1"
+    choice "@CH3_CHIESA_C1"
         go CH2_VILLAGGIO_PIAZZA
     end
-    choice "@C3_CHIESA_ESTERNO_C2"
+    choice "@CH3_CHIESA_C2"
         go CH3_CHIESA_INTERNO
     end
 
@@ -607,6 +607,7 @@ scene CH3_FALEGNAME_LAMINA
     choice "@CONTINUE"
         go CH3_FALEGNAME
     end
+
 
 
 
