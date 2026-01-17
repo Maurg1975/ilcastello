@@ -393,7 +393,7 @@ scene CH2_CASTELLO_PORTELLA_DAMA
         end
     end
     if accesso_portella then
-        choice "@CH2_CASTELLO_PORTELLA_DAMA_C2"
+        choice "@CH2_CASTELLO_PORTELLA_DAMA_C3"
             go CH2_CASTELLO_CORTILE
         end
     end
@@ -659,6 +659,7 @@ scene CH3_FALEGNAME_LAMINA
     choice "@CONTINUE"
         go CH3_FALEGNAME
     end
+
 
 
 
