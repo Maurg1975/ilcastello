@@ -388,10 +388,16 @@ scene CH2_CASTELLO_PORTELLA_DAMA
         go CH2_PONTE
     end
     if has mazzo_fiori then
-        choice "@CH2_CASTELLO_PORTELLA_DAMA_C1"
+        choice "@CH2_CASTELLO_PORTELLA_DAMA_C2"
             go CH2_CASTELLO_PORTELLA_FIORI
         end
     end
+    if accesso_portella then
+        choice "@CH2_CASTELLO_PORTELLA_DAMA_C2"
+            go CH2_CASTELLO_CORTILE
+        end
+    end
+
 
 scene CH2_CASTELLO_PORTELLA_FIORI
     if not vintage_mode then
@@ -653,6 +659,7 @@ scene CH3_FALEGNAME_LAMINA
     choice "@CONTINUE"
         go CH3_FALEGNAME
     end
+
 
 
 
